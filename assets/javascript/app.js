@@ -6,8 +6,8 @@ let Trivia = [
 
     {
         question: "In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?",
-        choiceA: "Martin Luther King Jr.",
-        choiceB: "Buddy Holly",
+        choiceA: "Martin Luther King Jr.", 
+        choiceB: "Buddy Holly" ,
         choiceC: "John F. Kennedy",
         choiceD: "Billie Holiday",
         correct: "Buddy Holly",
@@ -47,7 +47,7 @@ let Trivia = [
         questoin: "Jerry Garica was the lead guitarist for which iconoclast American Rock and Roll Group?",
         choiceA: "The Kinks",
         choiceB: "The Grateful Dead",
-        choiceC: "The Yardbirds",
+        choiceC: "The Yardbirds", 
         choiceD: "Velvet Underground",
         correct: "The Grateful Dead",
 
@@ -85,20 +85,20 @@ let Trivia = [
 
     {
         question: "Which drummer was found dead after consuming the equivalent of 40 vodka shots?",
-        choiceA: "Keith Moon",
-        choiceB: "John Bonham",
-        choiceC: "Earl Palmer",
-        choiceD: "Ginger Baker",
+        choiceA: "Keith Moon", 
+        choiceB: "John Bonham", 
+        choiceC: "Earl Palmer", 
+        choiceD: "Ginger Baker", 
         correct: "John Bonham",
 
     },
 
     {
         question: "Who is credited with recording the guitar solo for Michael Jackson's hit song 'Beat it'?",
-        choiceA: "Jimi Hendrix",
-        choiceB: "Angus Young",
-        choiceC: "Jeff Beck",
-        ChoiceD: "Eddie Van Halen",
+        choiceA: "Jimi Hendrix", 
+        choiceB: "Angus Young", 
+        choiceC: "Jeff Beck", 
+        ChoiceD: "Eddie Van Halen", 
         correct: "Eddie Van Halen",
 
     },
@@ -106,10 +106,32 @@ let Trivia = [
 
 ];
 
+// thoughts: could set value of choices to true false and have one array propoerty//
+// variables to be declared as of now//
+
+
 let playingGame = false;
+let correctAnswers = 0;
+let wrongAnswers = 0;
+let timedoutAnswers= 0;
+
+
+
 
 
 //By clicking the start button, we will hide the contents of the start screen completely from the user//
-const StartBtn = $(".start").click(function () {
+const StartBtn = $(".start").click(function (event) {
+    playingGame = true;
     $(".startscreen").hide();
+   $(".card").show();  //this should show the first question function?
+    console.log(playingGame);
+
 });
+
+// need to display the first question and choices for the user//
+
+//foor loop of questions//
+for (i=0; i < questions.length; i++) {
+    
+
+};
