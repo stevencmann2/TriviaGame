@@ -1,0 +1,12 @@
+body {
+    height: 100%;
+}
+
+.container {
+    width: 1025px;
+}
+
+.vertical-center {
+    height: 100%;
+    width: 100%;
+}

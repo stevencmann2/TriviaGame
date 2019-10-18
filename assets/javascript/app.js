@@ -26,10 +26,10 @@ A3: Brown
 Q4: What was the name of the road the Beatles crossed on their famous album dubbed from the same name?
 A4: Abbey Road
 
-Q5:Jerry Garica was the lead guitarist for what iconoclast American Rock and Roll Group?
+Q5:Jerry Garica was the lead guitarist for which iconoclast American Rock and Roll Group?
 A5; Grateful Dead
 
-Q6: What is the largest grossing touring in Rock and Roll history, grossing nearly $740 million?
+Q6: What is the largest grossing tour in Rock and Roll history, grossing nearly $740 million?
 A6: U2 - 360 Tour
 
 Q7: Who was the lead guitarist of the band Cream?
