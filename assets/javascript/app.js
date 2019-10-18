@@ -1,22 +1,23 @@
 // Javascript for Rock and Roll Trivia
 //$(".start") is the start button at the start of the game
 
+//Triva contains all the questions, choices and correct answers to the trivia components//
 let Trivia = [
 
     {
         question: "In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?",
         choiceA: "Martin Luther King Jr.",
-        choiceB: "Buddy Holly", 
+        choiceB: "Buddy Holly",
         choiceC: "John F. Kennedy",
-        choiceD: "Billie Holiday", 
-        correct:"Buddy Holly",
+        choiceD: "Billie Holiday",
+        correct: "Buddy Holly",
 
     },
 
     {
         question: "Kirk Cobain, Jimi Hendrix, Jim Morrison and Janis Joplin all died at what, now notorious, age?",
         choiceA: "26",
-        choiceB: "25", 
+        choiceB: "25",
         choiceC: "27",
         choiceD: "28",
         correct: "27",
@@ -39,10 +40,10 @@ let Trivia = [
         ChoiceC: "Abbey Rd.",
         ChoiceD: "Penny Ln.",
         correct: "Abbey Rd.",
-    
+
     },
 
-    { 
+    {
         questoin: "Jerry Garica was the lead guitarist for which iconoclast American Rock and Roll Group?",
         choiceA: "The Kinks",
         choiceB: "The Grateful Dead",
@@ -59,8 +60,8 @@ let Trivia = [
         choiceC: "Pink Floyd -The Wall Tour (1980)",
         choiceD: "Taylor Swift - 1989 Tour (2015)",
         correct: "U2 - 360 Tour (2009)",
-    
-    },  
+
+    },
 
     {
         question: "Although not credited on the album, which guitarist actually recorded the solo for the Beatles 'While My Guitar Gently Weeps', which appeared on the Beatles 'White Album'?",
@@ -103,32 +104,12 @@ let Trivia = [
     },
 
 
+];
+
+let playingGame = false;
 
 
-
-]
-
-
-
-
-
-
-
-
-
-
-// Questions and answers for Trivia//
-
-/*    
-
-
-Q9; Which drummer was found dead after consuming the equivalent of 40 vodka shots?
-A9: John Bonham
-
-Q10;Who recorded the guitar solo for Michael Jackson's hit song "Beat it"?
-A10; Eddie Van Halen
-
-
-
-
-*/ 
+//By clicking the start button, we will hide the contents of the start screen completely from the user//
+const StartBtn = $(".start").click(function () {
+    $(".startscreen").hide();
+});
