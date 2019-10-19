@@ -2,9 +2,10 @@
 //$(".start") is the start button at the start of the game
 
 //Triva contains all the questions, choices and correct answers to the trivia components//
-let Trivia = [
+let Trivia = {
 
-    {
+    [
+        number: "1",
         question: "In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?",
         choiceA: "Martin Luther King Jr.", 
         choiceB: "Buddy Holly" ,
@@ -12,9 +13,10 @@ let Trivia = [
         choiceD: "Billie Holiday",
         correct: "Buddy Holly",
 
-    },
+    ],
 
-    {
+    [
+        number: "2",
         question: "Kirk Cobain, Jimi Hendrix, Jim Morrison and Janis Joplin all died at what, now notorious, age?",
         choiceA: "26",
         choiceB: "25",
@@ -22,18 +24,20 @@ let Trivia = [
         choiceD: "28",
         correct: "27",
 
-    },
+    ],
 
-    {
+    [
+        number: "3",
         question: "What color was the 'bad acid' at Woodstock?",
         choiceA: "Yellow",
         choiceB: "Blue",
         choiceC: "Red",
         choiceD: "Brown",
         correct: "Brown",
-    },
+    ],
 
-    {
+    [
+        number: "4",
         question: "What was the name of the road the Beatles crossed on their famous album dubbed from the same name?",
         choiceA: "Main St.",
         choiceB: "Noname St.",
@@ -41,9 +45,10 @@ let Trivia = [
         ChoiceD: "Penny Ln.",
         correct: "Abbey Rd.",
 
-    },
+    ],
 
     {
+        number: "5",
         questoin: "Jerry Garica was the lead guitarist for which iconoclast American Rock and Roll Group?",
         choiceA: "The Kinks",
         choiceB: "The Grateful Dead",
@@ -54,6 +59,7 @@ let Trivia = [
     },
 
     {
+        number: "6",
         question: "What is the largest grossing tour in Rock and Roll history, grossing nearly $740 million?",
         choiceA: "U2 - 360 Tour (2009)",
         choiceB: "Rolling Stones - Bigger Band Tour (2005)",
@@ -64,6 +70,7 @@ let Trivia = [
     },
 
     {
+        number: "7",
         question: "Although not credited on the album, which guitarist actually recorded the solo for the Beatles 'While My Guitar Gently Weeps', which appeared on the Beatles 'White Album'?",
         choiceA: "Jimmy Paige",
         choiceB: "Geroge Harrison",
@@ -74,6 +81,7 @@ let Trivia = [
     },
 
     {
+        number: "8",
         question: "Which song was the first #1 hit of the 2000's, the last #1 hit of 1999, & ranked as the 2nd most succesful song of all-time by Billboard Magazine?",
         choiceA: "'Higher' - Creed",
         choiceB: "'Smooth' - Santana ft. Rob Thomas",
@@ -84,6 +92,7 @@ let Trivia = [
     },
 
     {
+        number: "9",
         question: "Which drummer was found dead after consuming the equivalent of 40 vodka shots?",
         choiceA: "Keith Moon", 
         choiceB: "John Bonham", 
@@ -94,6 +103,7 @@ let Trivia = [
     },
 
     {
+        number: "10",
         question: "Who is credited with recording the guitar solo for Michael Jackson's hit song 'Beat it'?",
         choiceA: "Jimi Hendrix", 
         choiceB: "Angus Young", 
@@ -104,9 +114,15 @@ let Trivia = [
     },
 
 
-];
+};
 
-// thoughts: could set value of choices to true false and have one array propoerty//
+const Questions = [];
+const correct = [] 
+const ChoiceA =[];
+const choiceB = [];
+const choiceC = [];
+const choiceD = [];
+// thoughts: could set value of choices to true false and have one array property//
 // variables to be declared as of now//
 
 
@@ -125,13 +141,14 @@ const StartBtn = $(".start").click(function (event) {
     $(".startscreen").hide();
    $(".card").show();  //this should show the first question function?
     console.log(playingGame);
-
 });
 
+
+//start game function
+
 // need to display the first question and choices for the user//
+//but need to make a function for that//
+
+
 
 //foor loop of questions//
-for (i=0; i < questions.length; i++) {
-    
-
-};
