@@ -21,25 +21,31 @@ let playingGame = false;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 let timedoutAnswers = 0;
+//similar to count variable used in slideshow example from class//
 let questionNumber = 0;
 
 
 //By clicking the start button, we will hide the contents of the start screen completely from the user//
-const startBtn = $(".start").click(showQuestion) {
-    playingGame === true;
-    $(".startscreen").hide();
-    $(".card").show(); //this should show the first question function?
-};
-
-
+//Use jQuery to run "showQuestion" when we click the "start" button.
+$(".start").click(showQuestion) 
+//this should show the first question function?
 
 //show question and choices function?
 function showQuestion (){
-    $(".question.text").text(question[0]);
-    $(".ChoiceA-text").html(choiceA[0]);
-    $(".ChoiceB-text").html(choiceB[0]);
-    $(".ChoiceC-text").html(choiceC[0]);
-    $(".ChoiceD-text").html(choiceD[0]);
+    playingGame === true;
+    $(".startscreen").hide();
+    $(".card").show();
+    $(".question-text").html(question[questionNumber]);
+    $(".choiceA-text").html(choiceA[questionNumber]);
+    $(".choiceB-text").html(choiceB[questionNumber]);
+    $(".choiceC-text").html(choiceC[questionNumber]);
+    $(".choiceD-text").html(choiceD[questionNumber]);
+};
+
+//next question function?
+function nextQuestion () {
+    questionNumber ++;
+
 };
 //start game function after start click?
 /*function gameStart(){
