@@ -16,7 +16,7 @@ const choiceD = ["Billie Holiday", "28", "Brown", "Penny Ln.", "Velvet Undergrou
 
 //how to set correct Array to a value of true//
 for (i=0; i< length.correct;i++) {
-    let correct = true;
+    correct = true;
 };
 console.log(correct);
 
@@ -56,21 +56,16 @@ function nextQuestion () {
 
 };
 
-
+//checking of the button click with user repsonse
+$(".btn").click(userResponse);
 
 //user answer fucntion? use this to determine value click and compare with correct array//
 function userResponse () {
 
-    if ($(this).click() = correct[questionNumber]) {
-        console.log("You did it");
-        correctAnswers++;
-    }
-    else{
-        wrongAnswers++;
-    }
-
+    // need to put a comparative statement of button text and correct[questionNumber]//
 };
 console.log(correctAnswers);
+
 
 
 //start game function after start click?
