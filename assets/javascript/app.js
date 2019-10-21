@@ -3,19 +3,49 @@
 
 //The Triva game contains arrays of all the questions, choices and correct answers to the trivia components//
 
-const question = ["In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?", "Kirk Cobain, Jimi Hendrix, Jim Morrison and Janis Joplin all died at what, now notorious, age?",
-        "What color was the 'bad acid' at Woodstock?", "What was the name of the road the Beatles crossed on their famous album dubbed from the same name?", "Jerry Garica was the lead guitarist for which iconoclast American Rock and Roll Group?",
-        "What is the largest grossing tour in Rock and Roll history, grossing nearly $740 million?", "Although not credited on the album, which guitarist actually recorded the solo for the Beatles 'While My Guitar Gently Weeps', which appeared on the Beatles 'White Album'?",
-        "Which song was the first #1 hit of the 2000's, the last #1 hit of 1999, & ranked as the 2nd most succesful song of all-time by Billboard Magazine?", "Which drummer was found dead after consuming the equivalent of 40 vodka shots?", "Who is credited with recording the guitar solo for Michael Jackson's hit song 'Beat it'?",
-    ];
-let correct = ["Buddy Holly", "27", "Brown", "Abbey Rd.", "The Grateful Dead", "U2 - 360 Tour (2009)", "Eric Clapton", "'Smooth' - Santana ft. Rob Thomas", "John Bonham", "Eddie Van Halen", ];
-const choiceA = ["Martin Luther King Jr.", "26", "Yellow", "Main St.", "The Kinks", "U2 - 360 Tour (2009)", "Jimmy Paige", "'Higher' - Creed", "Keith Moon", "Jimi Hendrix", ];
-const choiceB = ["Buddy Holly", "25", "Blue", "Noname St.", "The Grateful Dead", "Rolling Stones - Bigger Band Tour (2005)", "Geroge Harrison", "'Smooth' - Santana ft. Rob Thomas", "John Bonham", "Angus Young", ];
-const choiceC = ["John F. Kennedy", "27", "Red", "Abbey Rd.", "The Yardbirds", "Pink Floyd -The Wall Tour (1980)", "Keith Richards", "'Kryptonite' - 3 Doors Down", "Earl Palmer", "Jeff Beck", ];
-const choiceD = ["Billie Holiday", "28", "Brown", "Penny Ln.", "Velvet Underground", "Taylor Swift - 1989 Tour (2015)", "Eric Clapton", "'With Arms Wide Open' - Creed", "Ginger Baker", "Eddie Van Halen", ];
+const Trivia = {
+    question: "In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?", "Kirk Cobain, Jimi Hendrix, Jim Morrison and Janis Joplin all died at what, now notorious, age?",
+    choice: ["Buddy Holly","Martin Luther King Jr.","Buddy Holly","John F. Kennedy",]
+    correct: "Billie Holiday",
+
+    question:"What color was the 'bad acid' at Woodstock?",
+    choice:["26","27","28","25",],
+    correct: "27",
+
+    question:"What was the name of the road the Beatles crossed on their famous album dubbed from the same name?",
+    choice:["Noname St.","Penny Ln.","Abbey Rd.","Main St.",],
+    correct:"Abbey Rd.",
+
+    question:"Jerry Garica was the lead guitarist for which iconoclast American Rock and Roll Group?",
+    choice:["The Rolling Stones","The Grateful Dead","The Kinks", "The Yardbirds",],
+    correct:"The Grateful Dead"
+
+    question:"What is the largest grossing tour in Rock and Roll history, grossing nearly $740 million?",
+    choice: ["U2 - 360 Tour (2009)","Rolling Stones - Bigger Band Tour (2005)","Pink Floyd -The Wall Tour (1980)","Taylor Swift - 1989 Tour (2015)",],
+    correct:"U2 - 360 Tour (2009)",
+
+    question:"Although not credited on the album, which guitarist actually recorded the solo for the Beatles 'While My Guitar Gently Weeps', which appeared on the Beatles 'White Album'?",
+    choice:["Eric Clapton", "Jimmy Paige", "Geroge Harrison", "Keith Richards"],
+    correct:"Eric Clapton",
+
+    question:"Which song was the first #1 hit of the 2000's, the last #1 hit of 1999, & ranked as the 2nd most succesful song of all-time by Billboard Magazine?",
+    choice:["'With Arms Wide Open' - Creed","'Smooth' - Santana ft. Rob Thomas","'Higher' - Creed","'Kryptonite' - 3 Doors Down",],
+    correct:"'Smooth' - Santana ft. Rob Thomas",
+
+    question: "Which drummer was found dead after consuming the equivalent of 40 vodka shots?",
+    choice:[ "Keith Moon", "Earl Palmer", "John Bonham","Ginger Baker",]
+    correct:"John Bonham",
+
+    question: "Who is credited with recording the guitar solo for Michael Jackson's hit song 'Beat it'?",
+    choice:["Jeff Beck", "Angus Young", "Jimi Hendrix", "Eddie Van Halen",]
+    correct: "Eddie Van Halen",
+         
+          
+};
+
 
 //how to set correct Array to a value of true//
-for (i=0; i< length.correct;i++) {
+for (i=0; i< correct.length;i++) {
     correct = true;
 };
 console.log(correct);
@@ -44,10 +74,10 @@ function showQuestion (){
     $(".startscreen").hide();
     $(".card").show();
     $(".question-text").html(question[questionNumber]);
-    $(".choiceA-text").html(choiceA[questionNumber]);
-    $(".choiceB-text").html(choiceB[questionNumber]);
-    $(".choiceC-text").html(choiceC[questionNumber]);
-    $(".choiceD-text").html(choiceD[questionNumber]);
+    $(".choice").html(choiceA[questionNumber]);
+    $(".choice").html(choiceB[questionNumber]);
+    $(".choice").html(choiceC[questionNumber]);
+    $(".choice").html(choiceD[questionNumber]);
 };
 
 //next question function?
@@ -57,11 +87,12 @@ function nextQuestion () {
 };
 
 //checking of the button click with user repsonse
-$(".btn").click(userResponse);
+$(".choice").click(userResponse);
 
 //user answer fucntion? use this to determine value click and compare with correct array//
 function userResponse () {
-
+    const clicked = $(this);
+    console.log(clicked.text());
     // need to put a comparative statement of button text and correct[questionNumber]//
 };
 console.log(correctAnswers);
