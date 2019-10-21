@@ -1,127 +1,18 @@
 // Javascript for Rock and Roll Trivia
 //$(".start") is the start button at the start of the game
 
-//Triva contains all the questions, choices and correct answers to the trivia components//
-let Trivia = {
+//The Triva game contains arrays of all the questions, choices and correct answers to the trivia components//
 
-    [
-        number: "1",
-        question: "In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?",
-        choiceA: "Martin Luther King Jr.", 
-        choiceB: "Buddy Holly" ,
-        choiceC: "John F. Kennedy",
-        choiceD: "Billie Holiday",
-        correct: "Buddy Holly",
-
-    ],
-
-    [
-        number: "2",
-        question: "Kirk Cobain, Jimi Hendrix, Jim Morrison and Janis Joplin all died at what, now notorious, age?",
-        choiceA: "26",
-        choiceB: "25",
-        choiceC: "27",
-        choiceD: "28",
-        correct: "27",
-
-    ],
-
-    [
-        number: "3",
-        question: "What color was the 'bad acid' at Woodstock?",
-        choiceA: "Yellow",
-        choiceB: "Blue",
-        choiceC: "Red",
-        choiceD: "Brown",
-        correct: "Brown",
-    ],
-
-    [
-        number: "4",
-        question: "What was the name of the road the Beatles crossed on their famous album dubbed from the same name?",
-        choiceA: "Main St.",
-        choiceB: "Noname St.",
-        ChoiceC: "Abbey Rd.",
-        ChoiceD: "Penny Ln.",
-        correct: "Abbey Rd.",
-
-    ],
-
-    {
-        number: "5",
-        questoin: "Jerry Garica was the lead guitarist for which iconoclast American Rock and Roll Group?",
-        choiceA: "The Kinks",
-        choiceB: "The Grateful Dead",
-        choiceC: "The Yardbirds", 
-        choiceD: "Velvet Underground",
-        correct: "The Grateful Dead",
-
-    },
-
-    {
-        number: "6",
-        question: "What is the largest grossing tour in Rock and Roll history, grossing nearly $740 million?",
-        choiceA: "U2 - 360 Tour (2009)",
-        choiceB: "Rolling Stones - Bigger Band Tour (2005)",
-        choiceC: "Pink Floyd -The Wall Tour (1980)",
-        choiceD: "Taylor Swift - 1989 Tour (2015)",
-        correct: "U2 - 360 Tour (2009)",
-
-    },
-
-    {
-        number: "7",
-        question: "Although not credited on the album, which guitarist actually recorded the solo for the Beatles 'While My Guitar Gently Weeps', which appeared on the Beatles 'White Album'?",
-        choiceA: "Jimmy Paige",
-        choiceB: "Geroge Harrison",
-        choiceC: "Keith Richards",
-        ChoiceD: "Eric Clapton",
-        correct: "Eric Clapton",
-
-    },
-
-    {
-        number: "8",
-        question: "Which song was the first #1 hit of the 2000's, the last #1 hit of 1999, & ranked as the 2nd most succesful song of all-time by Billboard Magazine?",
-        choiceA: "'Higher' - Creed",
-        choiceB: "'Smooth' - Santana ft. Rob Thomas",
-        choiceC: "'Kryptonite' - 3 Doors Down",
-        choiceD: "'With Arms Wide Open' - Creed",
-        correct: "'Smooth' - Santana ft. Rob Thomas",
-
-    },
-
-    {
-        number: "9",
-        question: "Which drummer was found dead after consuming the equivalent of 40 vodka shots?",
-        choiceA: "Keith Moon", 
-        choiceB: "John Bonham", 
-        choiceC: "Earl Palmer", 
-        choiceD: "Ginger Baker", 
-        correct: "John Bonham",
-
-    },
-
-    {
-        number: "10",
-        question: "Who is credited with recording the guitar solo for Michael Jackson's hit song 'Beat it'?",
-        choiceA: "Jimi Hendrix", 
-        choiceB: "Angus Young", 
-        choiceC: "Jeff Beck", 
-        ChoiceD: "Eddie Van Halen", 
-        correct: "Eddie Van Halen",
-
-    },
-
-
-};
-
-const Questions = [];
-const correct = [] 
-const ChoiceA =[];
-const choiceB = [];
-const choiceC = [];
-const choiceD = [];
+const question = ["In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?", "Kirk Cobain, Jimi Hendrix, Jim Morrison and Janis Joplin all died at what, now notorious, age?",
+        "What color was the 'bad acid' at Woodstock?", "What was the name of the road the Beatles crossed on their famous album dubbed from the same name?", "Jerry Garica was the lead guitarist for which iconoclast American Rock and Roll Group?",
+        "What is the largest grossing tour in Rock and Roll history, grossing nearly $740 million?", "Although not credited on the album, which guitarist actually recorded the solo for the Beatles 'While My Guitar Gently Weeps', which appeared on the Beatles 'White Album'?",
+        "Which song was the first #1 hit of the 2000's, the last #1 hit of 1999, & ranked as the 2nd most succesful song of all-time by Billboard Magazine?", "Which drummer was found dead after consuming the equivalent of 40 vodka shots?", "Who is credited with recording the guitar solo for Michael Jackson's hit song 'Beat it'?",
+    ];
+    const correct = ["Buddy Holly", "27", "Brown", "Abbey Rd.", "The Grateful Dead", "U2 - 360 Tour (2009)", "Eric Clapton", "'Smooth' - Santana ft. Rob Thomas", "John Bonham", "Eddie Van Halen", ];
+const ChoiceA = ["Martin Luther King Jr.", "26", "Yellow", "Main St.", "The Kinks", "U2 - 360 Tour (2009)", "Jimmy Paige", "'Higher' - Creed", "Keith Moon", "Jimi Hendrix", ];
+const choiceB = ["Buddy Holly", "25", "Blue", "Noname St.", "The Grateful Dead", "Rolling Stones - Bigger Band Tour (2005)", "Geroge Harrison", "'Smooth' - Santana ft. Rob Thomas", "John Bonham", "Angus Young", ];
+const choiceC = ["John F. Kennedy", "27", "Red", "Abbey Rd.", "The Yardbirds", "Pink Floyd -The Wall Tour (1980)", "Keith Richards", "'Kryptonite' - 3 Doors Down", "Earl Palmer", "Jeff Beck", ];
+const choiceD = ["Billie Holiday", "28", "Brown", "Penny Ln.", "Velvet Underground", "Taylor Swift - 1989 Tour (2015)", "Eric Clapton", "'With Arms Wide Open' - Creed", "Ginger Baker", "Eddie Van Halen", ];
 // thoughts: could set value of choices to true false and have one array property//
 // variables to be declared as of now//
 
@@ -129,7 +20,7 @@ const choiceD = [];
 let playingGame = false;
 let correctAnswers = 0;
 let wrongAnswers = 0;
-let timedoutAnswers= 0;
+let timedoutAnswers = 0;
 
 
 
@@ -139,7 +30,7 @@ let timedoutAnswers= 0;
 const StartBtn = $(".start").click(function (event) {
     playingGame = true;
     $(".startscreen").hide();
-   $(".card").show();  //this should show the first question function?
+    $(".card").show(); //this should show the first question function?
     console.log(playingGame);
 });
 
