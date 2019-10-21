@@ -47,6 +47,15 @@ function nextQuestion () {
     questionNumber ++;
 
 };
+//user answer fucntion? use this to determine value click and compare with correct array//
+function userResponse () {
+
+    if ($(this).click() = correct[questionNumber]) {
+        console.log("You did it");
+
+}};
+
+
 //start game function after start click?
 /*function gameStart(){
  if playingGame = true {
