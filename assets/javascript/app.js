@@ -3,9 +3,7 @@
 
 //The triva game contains arrays of all the questions, choices and correct answers to the trivia components//
 
-//ISSUES LEFT TO SOLVE: text for pictures that dont display immediately, ending result card layout//
-
-
+//ISSUES LEFT TO SOLVE: text for pictures that dont display immediately
 
 const trivia = [{
 
@@ -113,27 +111,7 @@ function showQuestion() {
     triviaInterval = setInterval(timeSetup, 1000);
 
 };
-
-
-// image screen from slideshow example, this will hold our function that displays an images jumbotron based on the user response
-/*function imagesScreen() {
-    if (correctAnswers++){ //this is saying if the ansewer was right then
-    
-    $(".card").hide();
-    $(".question-slide").show();
-    $(".question-slide").html("Correct the answer is " + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
-    questionNumber++;
-    setTimeout(showQuestion, 3000);    
-}
-    else { //this is saying the answer was wrong 
-    $(".card").hide();
-    $(".question-slide").show();
-    $(".question-slide").html("Incorrect the answer is "+ trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>"); 
-    questionNumber++;
-    setTimeout(showQuestion, 3000);
-    }
-};
-*/
+// function for the images screen when the users guess is correct
 function imagesScreenCorrect() {
     //this is saying if the ansewer was right then
     $(".card").hide();
@@ -143,7 +121,7 @@ function imagesScreenCorrect() {
     questionNumber++;
     setTimeout(showQuestion, 3000);
 };
-
+// function for the images screen when the users guess is incorrect
 function imagesScreenIncorrect() {
     //this is saying the answer was wrong 
     $(".card").hide();
@@ -153,7 +131,7 @@ function imagesScreenIncorrect() {
     questionNumber++;
     setTimeout(showQuestion, 3000);
 };
-
+// function for the images screen when the users guess is not recorded before the time runs out
 function imagesScreenTimeUp() {
     $(".card").hide();
     $(".question-slide").show();
@@ -164,7 +142,7 @@ function imagesScreenTimeUp() {
 
 };
 
-//timer function and timedout function for answers that are not answered in time//
+//time function for answers that are not answered 
 function timeSetup() {
     timeleft--;
     $(".timer").html("Time Left on this Question: " + timeleft);
@@ -178,7 +156,7 @@ function timeSetup() {
 //checking of the button click with user repsonse
 $(".choice").click(userResponse);
 
-//user answer fucntion? use this to determine value click and compare with correct array//
+//user response function, will use this to determine value click and compare with correct property
 function userResponse() {
     const clicked = $(this);
     console.log(clicked.text());
@@ -186,7 +164,7 @@ function userResponse() {
         console.log("they match");
         clearInterval(triviaInterval);
         correctAnswers++;
-        imagesScreenCorrect(); //THIS ISNT WORKINGGGGGG
+        imagesScreenCorrect(); 
 
     } else {
         wrongAnswers++;
@@ -194,7 +172,7 @@ function userResponse() {
         imagesScreenIncorrect();
     }
 };
-//replay function click event//
+//replay function will set values to zero upon click event and restart the question from [0]
 $(".replay").click(function replay() {
     correctAnswers = 0;
     wrongAnswers = 0;
@@ -215,6 +193,5 @@ function endGame() {
         $(".results-incorrect").html("Incorrect: " + wrongAnswers);
         $(".results-unanswered").html("Unanswered: " + timedoutAnswers);
         clearInterval(triviaInterval);
-        //on click function for the replay button to reset everything
     }
 }
