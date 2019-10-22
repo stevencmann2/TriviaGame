@@ -107,20 +107,22 @@ function showQuestion() {
 };
 
 
-
-
 // image screen from slideshow example, this will hold our function that displays images
 function imagesScreen() {
     if (correctAnswers++){ //this is saying if the ansewer was right then
     //$(".timer").html("Correct, the answer was " + trivia[questionNumber].correct);
     $(".card").hide();
     $(".question-slide").show();
-    $(".question-slide").html("Correct the answer is" + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
-    }
-    else {//this is saying if it was not correct then 
+    $(".question-slide").html("Correct the answer is " + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
+    questionNumber++;
+    setTimeout(showQuestion, 3000);    
+}
+    else {
     $(".card").hide();
     $(".question-slide").show();
     $(".question-slide").html("Incorrect the answer is "+ trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>"); 
+    questionNumber++;
+    setTimeout(showQuestion, 3000);
     //$(".question-slide").html("<img src=" + images[questionNumber] + " width='400px'>");
     //$(".timer").html("Incorrect, the answer was " + trivia[questionNumber].correct);
     }
@@ -135,9 +137,8 @@ function timeSetup () {
        timedoutAnswers++;
        //imagesScreen();
        //console.log(timedoutAnswers);
-       clearInterval(triviaInterval);
        imagesScreen();
-       
+       clearInterval(triviaInterval);  
    }
 
 };
@@ -149,7 +150,7 @@ function endGame() {
         $(".card").hide();
         $(".end-game").show();
         $(".results-text").html("Correct: " + correctAnswers + "Incorrect: " + wrongAnswers + "Unanswered: " + timedoutAnswers)
-        clearInterval(triviainterval)
+        clearInterval(triviaInterval)
     }
 };
 
