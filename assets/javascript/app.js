@@ -67,11 +67,12 @@ const images = ["assets/images/question0.jpg", "assets/images/question1.jpg", "a
 // variables to be declared as of now//
 
 let timeleft = 26;
+let IntervalId;
 let playingGame = false;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 let timedoutAnswers = 0;
-let IntervalId;
+
 
 //similar to count variable used in slideshow example from class//
 let questionNumber = 0;
@@ -97,6 +98,8 @@ function showQuestion() {
     $(".choiceC-text").html(trivia[questionNumber].choice[2]);
     $(".choiceD-text").html(trivia[questionNumber].choice[3]);
     timeSetup();
+    setInterval(timeSetup,1000);
+    
 };
 
 //next question function?
@@ -115,6 +118,15 @@ function timeSetup () {
     //setTimeout(imagesScreen, 1000);
     timeleft--;
    $(".timer").html("Time Left:" + timeleft);
+   if (timeleft == 0){
+       timedoutAnswers++;
+       //imagesScreen();
+       console.log(timedoutAnswers);
+
+   }
+    
+
+   //setup clearinterval for end game function
 
 };
 
@@ -133,7 +145,7 @@ function timeSetup () {
 function endGame() {
     if (questionNumber == 10) {
         //will update when I resolve the timer //
-
+        //clearInterval(intervalId);
     }
 };
 
