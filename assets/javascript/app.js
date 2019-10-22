@@ -138,7 +138,7 @@ function imagesScreenCorrect() {
     //this is saying if the ansewer was right then
     $(".card").hide();
     $(".question-slide").show();
-    $(".right-wrong").html("Correct the answer is " + trivia[questionNumber].correct);
+    $(".right-wrong").html("Correct, the answer is " + trivia[questionNumber].correct);
     $(".lead").html("<img src=" + images[questionNumber] + " width='400px'>");
     questionNumber++;
     setTimeout(showQuestion, 3000);
@@ -148,10 +148,20 @@ function imagesScreenIncorrect() {
     //this is saying the answer was wrong 
     $(".card").hide();
     $(".question-slide").show();
-    $(".right-wrong").html("Incorrect the answer is " + trivia[questionNumber].correct);
+    $(".right-wrong").html("Incorrect, the answer is " + trivia[questionNumber].correct);
     $(".lead").html("<img src=" + images[questionNumber] + " width='400px'>");
     questionNumber++;
     setTimeout(showQuestion, 3000);
+};
+
+function imagesScreenTimeUp() {
+    $(".card").hide();
+    $(".question-slide").show();
+    $(".right-wrong").html( "Times up! The answer is " + trivia[questionNumber].correct);
+    $(".lead").html("<img src=" + images[questionNumber] + " width='400px'>");
+    questionNumber++;
+    setTimeout(showQuestion, 3000);
+
 };
 
 //timer function and timedout function for answers that are not answered in time//
@@ -160,7 +170,7 @@ function timeSetup() {
     $(".timer").html("Time Left on this Question: " + timeleft);
     if (timeleft == 0) {
         timedoutAnswers++;
-        imagesScreenIncorrect();
+        imagesScreenTimeUp();
         clearInterval(triviaInterval);
     }
 };
