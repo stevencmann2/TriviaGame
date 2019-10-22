@@ -67,7 +67,7 @@ const images = ["assets/images/question0.jpg", "assets/images/question1.jpg", "a
 // variables to be declared as of now//
 
 let timeleft = 26;
-let intervalId;
+let triviaInterval;
 let playingGame = false;
 let correctAnswers = 0;
 let wrongAnswers = 0;
@@ -85,6 +85,8 @@ $(".start").click(showQuestion)
 
 //Result Card Hidden
 $(".end-game").hide();
+//image slide and click result hidden
+$(".question-slide").hide();
 
 
 //show question and choices function?
@@ -99,7 +101,7 @@ function showQuestion() {
     $(".choiceD-text").html(trivia[questionNumber].choice[3]);
     timeleft = 26;
     timeSetup();
-    intervalId = setInterval(timeSetup,1000);
+    triviaInterval = setInterval(timeSetup,1000);
     
     
 };
@@ -110,10 +112,17 @@ function showQuestion() {
 // image screen from slideshow example, this will hold our function that displays images
 function imagesScreen() {
     if (correctAnswers++){ //this is saying if the ansewer was right then
-    $(".question-text").html("Correct" + "<img src=" + images[questionNumber] + " width='400px'>");
+    //$(".timer").html("Correct, the answer was " + trivia[questionNumber].correct);
+    $(".card").hide();
+    $(".question-slide").show();
+    $(".question-slide").html("Correct the answer is" + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
     }
     else {//this is saying if it was not correct then 
-    $(".question-text").html("Incorrect" + "<img src=" + images[questionNumber] + " width='400px'>");
+    $(".card").hide();
+    $(".question-slide").show();
+    $(".question-slide").html("Incorrect the answer is "+ trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>"); 
+    //$(".question-slide").html("<img src=" + images[questionNumber] + " width='400px'>");
+    //$(".timer").html("Incorrect, the answer was " + trivia[questionNumber].correct);
     }
 };
 
@@ -126,11 +135,10 @@ function timeSetup () {
        timedoutAnswers++;
        //imagesScreen();
        //console.log(timedoutAnswers);
-       alert("timer stop");
+       clearInterval(triviaInterval);
+       imagesScreen();
        
    }
-   
-   //setup clearinterval for end game function
 
 };
 
@@ -138,7 +146,7 @@ function timeSetup () {
 function endGame() {
     if (questionNumber == 10) {
         //will update when I resolve the timer //
-        //clearInterval(intervalId);
+        //clearInterval(triviainterval)
     }
 };
 
@@ -151,21 +159,18 @@ function userResponse() {
     console.log(clicked.text());
     if (clicked.text() === trivia[questionNumber].correct) {
         console.log("they match");
-        clearInterval(intervalId);
+        clearInterval(triviaInterval);
         correctAnswers++; 
         imagesScreen(); //THIS ISNT WORKINGGGGGG
         questionNumber++;
         endGame();
         showQuestion();
-
-
     } else {
         wrongAnswers++;
         questionNumber++;
-        clearInterval(intervalId);
+        clearInterval(triviaInterval);
         endGame();
         showQuestion();
-
     }
     //console.log(wrongAnswers);
     //console.log(correctAnswers);
