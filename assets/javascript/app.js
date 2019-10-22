@@ -82,13 +82,11 @@ $(".start").click(showQuestion)
 
 
 
-
-
-
 //show question and choices function?
 function showQuestion() {
     playingGame === true;
     $(".startscreen").hide();
+    $(".end-game").hide();
     $(".card").show();
     $(".question-text").html(trivia[questionNumber].question);
     $(".choiceA-text").html(trivia[questionNumber].choice[0]);
@@ -106,7 +104,7 @@ function nextQuestion() {
 //ends the game and shows results page function //
 function endGame(){
     if(questionNumber == 10)
-       alert("endgame");
+    $(".end-game").show();
    };
 
 //checking of the button click with user repsonse
