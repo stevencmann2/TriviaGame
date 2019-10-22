@@ -67,7 +67,7 @@ const images = ["assets/images/question0.jpg", "assets/images/question1.jpg", "a
 // variables to be declared as of now//
 
 let timeleft = 26;
-let IntervalId;
+let intervalId;
 let playingGame = false;
 let correctAnswers = 0;
 let wrongAnswers = 0;
@@ -97,20 +97,24 @@ function showQuestion() {
     $(".choiceB-text").html(trivia[questionNumber].choice[1]);
     $(".choiceC-text").html(trivia[questionNumber].choice[2]);
     $(".choiceD-text").html(trivia[questionNumber].choice[3]);
+    timeleft = 26;
     timeSetup();
-    setInterval(timeSetup,1000);
+    intervalId = setInterval(timeSetup,1000);
+    
     
 };
 
-//next question function?
-function nextQuestion() {
-    questionNumber++;
 
-};
+
 
 // image screen from slideshow example, this will hold our function that displays images
 function imagesScreen() {
-    $(".question-text").html("<img src=" + images[questionNumber] + " width='400px'>");
+    if (correctAnswers++){ //this is saying if the ansewer was right then
+    $(".question-text").html("Correct" + "<img src=" + images[questionNumber] + " width='400px'>");
+    }
+    else {//this is saying if it was not correct then 
+    $(".question-text").html("Incorrect" + "<img src=" + images[questionNumber] + " width='400px'>");
+    }
 };
 
 //timer function
@@ -121,25 +125,14 @@ function timeSetup () {
    if (timeleft == 0){
        timedoutAnswers++;
        //imagesScreen();
-       console.log(timedoutAnswers);
-
+       //console.log(timedoutAnswers);
+       alert("timer stop");
+       
    }
-    
-
+   
    //setup clearinterval for end game function
 
 };
-
-
-
- 
-
-
-
-
-
-
-
 
 //ends the game and shows results page function //
 function endGame() {
@@ -148,10 +141,6 @@ function endGame() {
         //clearInterval(intervalId);
     }
 };
-
-
-
-
 
 //checking of the button click with user repsonse
 $(".choice").click(userResponse);
@@ -162,9 +151,9 @@ function userResponse() {
     console.log(clicked.text());
     if (clicked.text() === trivia[questionNumber].correct) {
         console.log("they match");
+        clearInterval(intervalId);
         correctAnswers++; 
         imagesScreen(); //THIS ISNT WORKINGGGGGG
-        $(".card").html()//correct); //THIS ISNT WORKINGGGGGG
         questionNumber++;
         endGame();
         showQuestion();
@@ -173,6 +162,7 @@ function userResponse() {
     } else {
         wrongAnswers++;
         questionNumber++;
+        clearInterval(intervalId);
         endGame();
         showQuestion();
 
