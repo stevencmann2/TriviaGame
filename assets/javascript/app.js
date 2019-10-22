@@ -11,7 +11,7 @@ const trivia = [{
     },
 
     {
-        question: "Jimi Hendrix, Janis Joplin and Kurt Cobain all died at what, now notroious, age?",
+        question: "Jimi Hendrix, Janis Joplin and Kurt Cobain all died at what, now notorious, age?",
         choice: ["26", "27", "28", "25"],
         correct: "27",
     },
@@ -32,7 +32,7 @@ const trivia = [{
     },
     {
 
-        question: "Although not credited on the album, which guitarist actually recorded the solo for the Beatles 'While My Guitar Gently Weeps', which appeared on the Beatles 'White Album'?",
+        question: "Although not credited on the album, which guitarist actually recorded the solo for the Beatles 'While My Guitar Gently Weeps', which appeared on the Beatle's 'White Album'?",
         choice: ["Eric Clapton", "Jimmy Paige", "Geroge Harrison", "Keith Richards"],
         correct: "Eric Clapton",
     },
@@ -107,22 +107,29 @@ function userResponse() {
     console.log(clicked.text());
     if (clicked.text() === trivia[questionNumber].correct){
         console.log("they match");
+        correctAnswers++;
         questionNumber++;
         showQuestion();
-    correctAnswers++;
+    
     }
     else{
         wrongAnswers++;
         questionNumber++;
         showQuestion();
     }
-console.log(wrongAnswers);
-console.log(correctAnswers);
+//console.log(wrongAnswers);
+//console.log(correctAnswers);
     
     // need to put a comparative statement of button text and correct[questionNumber]//
 };
 console.log(correctAnswers);
 
+function endGame(){
+    if (questionNumber > trivia.question.length){
+        console.log("endgame");
+    }
+
+}
 
 
 
