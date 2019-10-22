@@ -138,7 +138,8 @@ function imagesScreenCorrect() {
     //this is saying if the ansewer was right then
     $(".card").hide();
     $(".question-slide").show();
-    $(".question-slide").html("Correct the answer is " + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
+    $(".right-wrong").html("Correct the answer is " + trivia[questionNumber].correct);
+    $(".lead").html("<img src=" + images[questionNumber] + " width='400px'>");
     questionNumber++;
     setTimeout(showQuestion, 3000);
 };
@@ -147,7 +148,8 @@ function imagesScreenIncorrect() {
     //this is saying the answer was wrong 
     $(".card").hide();
     $(".question-slide").show();
-    $(".question-slide").html("Incorrect the answer is " + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
+    $(".right-wrong").html("Incorrect the answer is " + trivia[questionNumber].correct);
+    $(".lead").html("<img src=" + images[questionNumber] + " width='400px'>");
     questionNumber++;
     setTimeout(showQuestion, 3000);
 };

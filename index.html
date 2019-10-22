@@ -15,63 +15,72 @@
 
     <title>R n' R Triva</title>
 </head>
+
 <body>
-<div class="container">
-    <!--Start Screen Jumbotron-->
-    <div class="row mt-5">
-        <div class="jumbotron jumbotron-fluid vertical-center text-center startscreen">
-            <h1 class="display-4 p-4 startscreen">Welcome to Rock and Roll Trivia</h1>
-            <p class="lead startscreen">Press the start button to answer 10 timed questions about Rock and Roll</p>
-            <a class="btn btn-primary btn-lg mt-3 start startscreen" role="button">Start</a>
-        </div>
-    </div>
+    <div class="container">
+        <!--Start Screen Jumbotron-->
+        <div class="row mt-5">
 
-    <!--Trivia Card to appear Once "Start" Button is Pressed-->
 
-<div class="card question-dissapear" style="width">
-        <div class="card-body text-center">
-          <h5 class="card-title timer">Timer</h5>
-          <p class="card-text question-text">Placeholder Question Prompt Text</p>
-          <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-secondary ml-4 choice choiceA-text">Choice A</button>
-                <button type="button" class="btn btn-secondary ml-4 choice choiceB-text">Choice B</button>
-                <button type="button" class="btn btn-secondary ml-4 choice choiceC-text">Choice C</button>
-                <button type="button" class="btn btn-secondary ml-4 choice choiceD-text">Choice D</button>
-        </div>
-      </div>
-    </div>
-
-    <!--IMG Card that will show based on user response-->
-
-    <div class="jumbotron jumbotron-fluid text-center question-slide">
-            <div class="container">
-              <h1 class="display-4"></h1>
-              <p class="lead"></p>
+            <div class="jumbotron jumbotron-fluid vertical-center text-center startscreen">
+                <h1 class="display-4 p-4 startscreen">Welcome to Rock and Roll Trivia</h1>
+                <p class="lead startscreen">Press the start button to answer 10 timed questions about Rock and Roll</p>
+                <a class="btn btn-primary btn-lg mt-3 start startscreen" role="button">Start</a>
             </div>
-          </div>
 
-    <!--END RESULTS PAGE-->
-    <div class="row mt-5 end-game">
+
+        </div>
+
+        <!--Trivia Card to appear Once "Start" Button is Pressed-->
+
+        <div class="card question-dissapear" style="width">
+            <div class="card-body text-center">
+                <h5 class="card-title timer">Timer</h5>
+                <p class="card-text question-text">Placeholder Question Prompt Text</p>
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-secondary ml-4 choice choiceA-text">Choice A</button>
+                    <button type="button" class="btn btn-secondary ml-4 choice choiceB-text">Choice B</button>
+                    <button type="button" class="btn btn-secondary ml-4 choice choiceC-text">Choice C</button>
+                    <button type="button" class="btn btn-secondary ml-4 choice choiceD-text">Choice D</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!--IMG Card that will show based on user response-->
+
+        <div class="jumbotron jumbotron-fluid text-center question-slide">
+            <div class="container">
+                <h1 class="display-4 right-wrong"></h1>
+                <p class="lead"></p>
+            </div>
+
+        </div>
+
+        <!--END RESULTS PAGE-->
+
+        <div class="row mt-5 end-game">
             <div class="jumbotron jumbotron-fluid vertical-center text-center">
                 <h1 class="display-4 p-4">You Finished!</h1>
                 <p class="lead end-game results-text"></p>
                 <a class="btn btn-primary btn-lg mt-3 end-game replay" role="button">Replay</a>
             </div>
+
         </div>
 
-   
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-    <!-- Optional JavaScript -->
-    <script src="assets/javascript/app.js"></script>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <!-- Optional JavaScript -->
+        <script src="assets/javascript/app.js"></script>
 
 </body>
 
