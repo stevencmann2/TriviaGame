@@ -146,7 +146,10 @@ function timeSetup () {
 function endGame() {
     if (questionNumber == 10) {
         //will update when I resolve the timer //
-        //clearInterval(triviainterval)
+        $(".card").hide();
+        $(".end-game").show();
+        $(".results-text").html("Correct: " + correctAnswers + "Incorrect: " + wrongAnswers + "Unanswered: " + timedoutAnswers)
+        clearInterval(triviainterval)
     }
 };
 
