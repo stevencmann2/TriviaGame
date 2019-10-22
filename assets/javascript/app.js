@@ -80,6 +80,11 @@ let questionNumber = 0;
 $(".start").click(showQuestion)
 //this should show the first question function?
 
+
+
+
+
+
 //show question and choices function?
 function showQuestion() {
     playingGame === true;
@@ -98,6 +103,12 @@ function nextQuestion() {
 
 };
 
+//ends the game and shows results page function //
+function endGame(){
+    if(questionNumber == 10)
+       alert("endgame");
+   };
+
 //checking of the button click with user repsonse
 $(".choice").click(userResponse);
 
@@ -109,13 +120,17 @@ function userResponse() {
         console.log("they match");
         correctAnswers++;
         questionNumber++;
+        endGame();
         showQuestion();
+        
     
     }
     else{
         wrongAnswers++;
         questionNumber++;
+        endGame();
         showQuestion();
+        
     }
 //console.log(wrongAnswers);
 //console.log(correctAnswers);
@@ -124,12 +139,7 @@ function userResponse() {
 };
 console.log(correctAnswers);
 
-function endGame(){
-    if (questionNumber > trivia.question.length){
-        console.log("endgame");
-    }
 
-}
 
 
 
