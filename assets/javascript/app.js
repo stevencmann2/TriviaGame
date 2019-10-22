@@ -155,7 +155,7 @@ function imagesScreenIncorrect() {
 //timer function and timedout function for answers that are not answered in time//
 function timeSetup() {
     timeleft--;
-    $(".timer").html("Time Left:" + timeleft);
+    $(".timer").html("Time Left on this Question: " + timeleft);
     if (timeleft == 0) {
         timedoutAnswers++;
         imagesScreenIncorrect();
