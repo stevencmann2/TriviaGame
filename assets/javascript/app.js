@@ -5,7 +5,7 @@
 
 const trivia = [{
 
-        question: "In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?",
+        question: "In Don Mclean's 'American Pie,' he references 'the day the music died'. Who's death is he referencing?",
         choice: ["Billie Holiday", "Martin Luther King Jr.", "Buddy Holly", "John F. Kennedy"],
         correct: "Buddy Holly",
     },
@@ -51,6 +51,11 @@ const trivia = [{
         question: "Who is credited with recording the guitar solo for Michael Jackson's hit song 'Beat it'?",
         choice: ["Jeff Beck", "Angus Young", "Jimi Hendrix", "Eddie Van Halen"],
         correct: "Eddie Van Halen",
+    },
+    {
+        question: "What Color was the 'bad acid' at the first Woodstock Festival?",
+        choice: ["Black", "Yellow", "Clear", "Brown"],
+        correct: "Brown",
     },
 
 ];
@@ -102,10 +107,14 @@ function userResponse() {
     console.log(clicked.text());
     if (clicked.text() === trivia[questionNumber].correct){
         console.log("they match");
+        questionNumber++;
+        showQuestion();
     correctAnswers++;
     }
     else{
         wrongAnswers++;
+        questionNumber++;
+        showQuestion();
     }
 console.log(wrongAnswers);
 console.log(correctAnswers);
