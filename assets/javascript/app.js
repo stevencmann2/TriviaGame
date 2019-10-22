@@ -60,7 +60,8 @@ const trivia = [{
 
 ];
 
-
+//images array
+const images = ["assets/images/question0.jpg", "assets/images/question1.jpg", "assets/images/question2.jpg", "assets/images/question3.jpg", "assets/images/question4.jpg", "assets/images/question5.jpg", "assets/images/question6.jpg", "assets/images/question7.jpg", "assets/images/question8.jpg", "assets/images/question9.jpg", ];
 
 //will eventually make correct choice = Choice[i;thisclick]//
 // variables to be declared as of now//
@@ -80,13 +81,15 @@ let questionNumber = 0;
 $(".start").click(showQuestion)
 //this should show the first question function?
 
+//Result Card Hidden
+$(".end-game").hide();
+
 
 
 //show question and choices function?
 function showQuestion() {
     playingGame === true;
     $(".startscreen").hide();
-    $(".end-game").hide();
     $(".card").show();
     $(".question-text").html(trivia[questionNumber].question);
     $(".choiceA-text").html(trivia[questionNumber].choice[0]);
@@ -102,10 +105,19 @@ function nextQuestion() {
 };
 
 //ends the game and shows results page function //
-function endGame(){
-    if(questionNumber == 10)
-    $(".end-game").show();
-   };
+function endGame() {
+    if (questionNumber == 10) {
+        //will update when I resolve the timer //
+
+    }
+};
+
+
+
+// image screen from slideshow example
+function imagesScreen() {
+    $(".question-text").html("<img src=" + images[questionNumber] + " width='400px'>");
+};
 
 //checking of the button click with user repsonse
 $(".choice").click(userResponse);
@@ -114,25 +126,26 @@ $(".choice").click(userResponse);
 function userResponse() {
     const clicked = $(this);
     console.log(clicked.text());
-    if (clicked.text() === trivia[questionNumber].correct){
+    if (clicked.text() === trivia[questionNumber].correct) {
         console.log("they match");
-        correctAnswers++;
+        correctAnswers++; 
+        imagesScreen(); //THIS ISNT WORKINGGGGGG
+        $(".question-number").html(//correct); //THIS ISNT WORKINGGGGGG
         questionNumber++;
         endGame();
         showQuestion();
-        
-    
-    }
-    else{
+
+
+    } else {
         wrongAnswers++;
         questionNumber++;
         endGame();
         showQuestion();
-        
+
     }
-//console.log(wrongAnswers);
-//console.log(correctAnswers);
-    
+    //console.log(wrongAnswers);
+    //console.log(correctAnswers);
+
     // need to put a comparative statement of button text and correct[questionNumber]//
 };
 console.log(correctAnswers);
