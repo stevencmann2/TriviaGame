@@ -64,11 +64,14 @@ const trivia = [{
 
 ];
 
-//images array
+//images array that contains images to be displayed upon user response//
 const images = ["assets/images/question0.jpg", "assets/images/question1.jpg", "assets/images/question2.jpg", "assets/images/question3.jpg", "assets/images/question4.jpg", "assets/images/question5.jpg", "assets/images/question6.jpg", "assets/images/question7.jpg", "assets/images/question8.jpg", "assets/images/question9.jpg", ];
 
-//will eventually make correct choice = Choice[i;thisclick]//
+
 // variables to be declared as of now//
+//time left it a countdown timer, starts at 25//
+//triviaInterval will be cleared for each slide timer//
+//answers counters will record results for end slide//
 
 let timeleft = 26;
 let triviaInterval;
@@ -78,26 +81,28 @@ let wrongAnswers = 0;
 let timedoutAnswers = 0;
 
 //similar to count variable used in slideshow example from class//
+//this will dictate functions to be run and what question we are on, starting at 0//
 let questionNumber = 0;
-
 
 //By clicking the start button, we will hide the contents of the start screen completely from the user//
 //Use jQuery to run "showQuestion" when we click the "start" button.
+//this should show the first question function//
 $(".start").click(showQuestion)
-//this should show the first question function?
 
-//Result Card Hidden
+//Result Card labeled "end-game" hidden
 $(".end-game").hide();
 //image slide and click result hidden
 $(".question-slide").hide();
 
 
-//show question and choices function?
+//show question and choices function 
+//will also hide all other elements not in question  and choices form user
 function showQuestion() {
     playingGame === true;
     $(".startscreen").hide();
     $(".question-slide").hide();
     $(".card").show();
+    endGame();
     $(".question-text").html(trivia[questionNumber].question);
     $(".choiceA-text").html(trivia[questionNumber].choice[0]);
     $(".choiceB-text").html(trivia[questionNumber].choice[1]);
@@ -147,7 +152,6 @@ function imagesScreenIncorrect() {
     setTimeout(showQuestion, 3000);
 };
 
-
 //timer function and timedout function for answers that are not answered in time//
 function timeSetup() {
     timeleft--;
@@ -178,14 +182,25 @@ function userResponse() {
         imagesScreenIncorrect();
     }
 };
+//replay function click event//
+$(".replay").click(function replay() {
+    correctAnswers = 0;
+    wrongAnswers = 0;
+    timedoutAnswers = 0;
+    questionNumber = 0;
+    $(".end-game").hide();
+    showQuestion();
+});
 
 //ends the game and shows results page function //
 function endGame() {
     if (questionNumber == 10) {
         //will update when I resolve the timer //
         $(".card").hide();
+        $(".question-slide").hide();
         $(".end-game").show();
-        $(".results-text").html("Correct: " + correctAnswers + "Incorrect: " + wrongAnswers + "Unanswered: " + timedoutAnswers)
-        clearInterval(triviaInterval)
+        $(".results-text").html("Correct: " + correctAnswers + "Incorrect: " + wrongAnswers + "Unanswered: " + timedoutAnswers);
+        clearInterval(triviaInterval);
+        //on click function for the replay button to reset everything
     }
-};
+}
