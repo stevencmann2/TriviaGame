@@ -66,7 +66,7 @@ const images = ["assets/images/question0.jpg", "assets/images/question1.jpg", "a
 //will eventually make correct choice = Choice[i;thisclick]//
 // variables to be declared as of now//
 
-let timeleft = 25;
+let timeleft = 26;
 let playingGame = false;
 let correctAnswers = 0;
 let wrongAnswers = 0;
@@ -96,6 +96,7 @@ function showQuestion() {
     $(".choiceB-text").html(trivia[questionNumber].choice[1]);
     $(".choiceC-text").html(trivia[questionNumber].choice[2]);
     $(".choiceD-text").html(trivia[questionNumber].choice[3]);
+    timeSetup();
 };
 
 //next question function?
@@ -113,7 +114,7 @@ function imagesScreen() {
 function timeSetup () {
     //setTimeout(imagesScreen, 1000);
     timeleft--;
-   $(".time").text("timeleft");
+   $(".timer").html("Time Left:" + timeleft);
 
 };
 
