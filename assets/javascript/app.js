@@ -3,7 +3,7 @@
 
 //The triva game contains arrays of all the questions, choices and correct answers to the trivia components//
 
-//ISSUES LEFT TO SOLVE: CARD DISSPEARING ON CORRECT?INCORRECT FUNCTION & END RESULTS SCREEN//
+//ISSUES LEFT TO SOLVE: text for pictures that dont display immediately, ending result card layout//
 
 
 
@@ -211,7 +211,9 @@ function endGame() {
         $(".card").hide();
         $(".question-slide").hide();
         $(".end-game").show();
-        $(".results-text").html("Correct: " + correctAnswers + "Incorrect: " + wrongAnswers + "Unanswered: " + timedoutAnswers);
+        $(".results-correct").html("Correct: " + correctAnswers);
+        $(".results-incorrect").html("Incorrect: " + wrongAnswers);
+        $(".results-unanswered").html("Unanswered: " + timedoutAnswers);
         clearInterval(triviaInterval);
         //on click function for the replay button to reset everything
     }
