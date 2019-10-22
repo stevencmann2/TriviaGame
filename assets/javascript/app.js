@@ -66,11 +66,12 @@ const images = ["assets/images/question0.jpg", "assets/images/question1.jpg", "a
 //will eventually make correct choice = Choice[i;thisclick]//
 // variables to be declared as of now//
 
-
+let timeleft = 25;
 let playingGame = false;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 let timedoutAnswers = 0;
+let IntervalId;
 
 //similar to count variable used in slideshow example from class//
 let questionNumber = 0;
@@ -83,7 +84,6 @@ $(".start").click(showQuestion)
 
 //Result Card Hidden
 $(".end-game").hide();
-
 
 
 //show question and choices function?
@@ -104,6 +104,30 @@ function nextQuestion() {
 
 };
 
+// image screen from slideshow example, this will hold our function that displays images
+function imagesScreen() {
+    $(".question-text").html("<img src=" + images[questionNumber] + " width='400px'>");
+};
+
+//timer function
+function timeSetup () {
+    //setTimeout(imagesScreen, 1000);
+    timeleft--;
+   $(".time").text("timeleft");
+
+};
+
+
+
+ 
+
+
+
+
+
+
+
+
 //ends the game and shows results page function //
 function endGame() {
     if (questionNumber == 10) {
@@ -114,10 +138,7 @@ function endGame() {
 
 
 
-// image screen from slideshow example
-function imagesScreen() {
-    $(".question-text").html("<img src=" + images[questionNumber] + " width='400px'>");
-};
+
 
 //checking of the button click with user repsonse
 $(".choice").click(userResponse);
@@ -130,7 +151,7 @@ function userResponse() {
         console.log("they match");
         correctAnswers++; 
         imagesScreen(); //THIS ISNT WORKINGGGGGG
-        $(".question-number").html(//correct); //THIS ISNT WORKINGGGGGG
+        $(".card").html()//correct); //THIS ISNT WORKINGGGGGG
         questionNumber++;
         endGame();
         showQuestion();
