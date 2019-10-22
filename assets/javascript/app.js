@@ -108,7 +108,7 @@ function showQuestion() {
 
 
 // image screen from slideshow example, this will hold our function that displays images
-function imagesScreen() {
+/* function imagesScreen() {
     if (correctAnswers++){ //this is saying if the ansewer was right then
     //$(".timer").html("Correct, the answer was " + trivia[questionNumber].correct);
     $(".card").hide();
@@ -127,6 +127,7 @@ function imagesScreen() {
     //$(".timer").html("Incorrect, the answer was " + trivia[questionNumber].correct);
     }
 };
+*/
 
 //timer function
 function timeSetup () {
@@ -137,7 +138,7 @@ function timeSetup () {
        timedoutAnswers++;
        //imagesScreen();
        //console.log(timedoutAnswers);
-       imagesScreen();
+       //imagesScreen();
        clearInterval(triviaInterval);  
    }
 
@@ -165,7 +166,7 @@ function userResponse() {
         console.log("they match");
         clearInterval(triviaInterval);
         correctAnswers++; 
-        imagesScreen(); //THIS ISNT WORKINGGGGGG
+        //imagesScreen(); //THIS ISNT WORKINGGGGGG
         questionNumber++;
         endGame();
         showQuestion();
