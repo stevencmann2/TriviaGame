@@ -8,7 +8,7 @@ const trivia =
 
     question: "In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?", 
     choice: ["Billie Holiday","Martin Luther King Jr.","Buddy Holly","John F. Kennedy"],
-    correct: "Budy Holly",
+    correct: "Buddy Holly",
 },
 
 {    
@@ -101,9 +101,12 @@ $(".choice").click(userResponse);
 function userResponse () {
     const clicked = $(this);
     console.log(clicked.text());
+    if (clicked.text() === trivia[questionNumber].correct)
+    console.log("they match");
     // need to put a comparative statement of button text and correct[questionNumber]//
 };
 console.log(correctAnswers);
+
 
 
 
