@@ -3,7 +3,7 @@
 
 //The triva game contains arrays of all the questions, choices and correct answers to the trivia components//
 
-
+//ISSUES LEFT TO SOLVE: CARD DISSPEARING ON CORRECT?INCORRECT FUNCTION & END RESULTS SCREEN//
 
 
 
@@ -96,6 +96,7 @@ $(".question-slide").hide();
 function showQuestion() {
     playingGame === true;
     $(".startscreen").hide();
+    $(".question-slide").hide();
     $(".card").show();
     $(".question-text").html(trivia[questionNumber].question);
     $(".choiceA-text").html(trivia[questionNumber].choice[0]);
@@ -147,11 +148,8 @@ function imagesScreenIncorrect() {
 };
 
 
-
-
 //timer function and timedout function for answers that are not answered in time//
 function timeSetup() {
-
     timeleft--;
     $(".timer").html("Time Left:" + timeleft);
     if (timeleft == 0) {
