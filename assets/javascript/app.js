@@ -3,6 +3,10 @@
 
 //The triva game contains arrays of all the questions, choices and correct answers to the trivia components//
 
+
+
+
+
 const trivia = [{
 
         question: "In Don Mclean's 'American Pie,' he references 'the day the music died'. Who's death is he referencing?",
@@ -73,7 +77,6 @@ let correctAnswers = 0;
 let wrongAnswers = 0;
 let timedoutAnswers = 0;
 
-
 //similar to count variable used in slideshow example from class//
 let questionNumber = 0;
 
@@ -101,57 +104,60 @@ function showQuestion() {
     $(".choiceD-text").html(trivia[questionNumber].choice[3]);
     timeleft = 26;
     timeSetup();
-    triviaInterval = setInterval(timeSetup,1000);
-    
-    
+    triviaInterval = setInterval(timeSetup, 1000);
+
 };
 
 
-// image screen from slideshow example, this will hold our function that displays images
-/* function imagesScreen() {
+// image screen from slideshow example, this will hold our function that displays an images jumbotron based on the user response
+/*function imagesScreen() {
     if (correctAnswers++){ //this is saying if the ansewer was right then
-    //$(".timer").html("Correct, the answer was " + trivia[questionNumber].correct);
+    
     $(".card").hide();
     $(".question-slide").show();
     $(".question-slide").html("Correct the answer is " + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
     questionNumber++;
     setTimeout(showQuestion, 3000);    
 }
-    else {
+    else { //this is saying the answer was wrong 
     $(".card").hide();
     $(".question-slide").show();
     $(".question-slide").html("Incorrect the answer is "+ trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>"); 
     questionNumber++;
     setTimeout(showQuestion, 3000);
-    //$(".question-slide").html("<img src=" + images[questionNumber] + " width='400px'>");
-    //$(".timer").html("Incorrect, the answer was " + trivia[questionNumber].correct);
     }
 };
 */
-
-//timer function
-function timeSetup () {
-    //setTimeout(imagesScreen, 1000);
-    timeleft--;
-   $(".timer").html("Time Left:" + timeleft);
-   if (timeleft == 0){
-       timedoutAnswers++;
-       //imagesScreen();
-       //console.log(timedoutAnswers);
-       //imagesScreen();
-       clearInterval(triviaInterval);  
-   }
-
+function imagesScreenCorrect() {
+    //this is saying if the ansewer was right then
+    $(".card").hide();
+    $(".question-slide").show();
+    $(".question-slide").html("Correct the answer is " + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
+    questionNumber++;
+    setTimeout(showQuestion, 3000);
 };
 
-//ends the game and shows results page function //
-function endGame() {
-    if (questionNumber == 10) {
-        //will update when I resolve the timer //
-        $(".card").hide();
-        $(".end-game").show();
-        $(".results-text").html("Correct: " + correctAnswers + "Incorrect: " + wrongAnswers + "Unanswered: " + timedoutAnswers)
-        clearInterval(triviaInterval)
+function imagesScreenIncorrect() {
+    //this is saying the answer was wrong 
+    $(".card").hide();
+    $(".question-slide").show();
+    $(".question-slide").html("Incorrect the answer is " + trivia[questionNumber].correct + "<img src=" + images[questionNumber] + " width='400px'>");
+    questionNumber++;
+    setTimeout(showQuestion, 3000);
+};
+
+
+
+
+//timer function and timedout function for answers that are not answered in time//
+function timeSetup() {
+
+    timeleft--;
+    $(".timer").html("Time Left:" + timeleft);
+    if (timeleft == 0) {
+        timedoutAnswers++;
+        imagesScreenIncorrect();
+        clearInterval(triviaInterval);
     }
 };
 
@@ -165,39 +171,23 @@ function userResponse() {
     if (clicked.text() === trivia[questionNumber].correct) {
         console.log("they match");
         clearInterval(triviaInterval);
-        correctAnswers++; 
-        //imagesScreen(); //THIS ISNT WORKINGGGGGG
-        questionNumber++;
-        endGame();
-        showQuestion();
+        correctAnswers++;
+        imagesScreenCorrect(); //THIS ISNT WORKINGGGGGG
+
     } else {
         wrongAnswers++;
-        questionNumber++;
         clearInterval(triviaInterval);
-        endGame();
-        showQuestion();
+        imagesScreenIncorrect();
     }
-    //console.log(wrongAnswers);
-    //console.log(correctAnswers);
-
-    // need to put a comparative statement of button text and correct[questionNumber]//
 };
-console.log(correctAnswers);
 
-
-
-
-
-//start game function after start click?
-/*function gameStart(){
- if playingGame = true {
-     
- }
-}; */
-
-// need to display the first question and choices for the user//
-//but need to make a function for that//
-
-
-
-//foor loop of questions//
+//ends the game and shows results page function //
+function endGame() {
+    if (questionNumber == 10) {
+        //will update when I resolve the timer //
+        $(".card").hide();
+        $(".end-game").show();
+        $(".results-text").html("Correct: " + correctAnswers + "Incorrect: " + wrongAnswers + "Unanswered: " + timedoutAnswers)
+        clearInterval(triviaInterval)
+    }
+};
