@@ -7,8 +7,8 @@ const trivia =
 [{
 
     question: "In Don Mclean's 'American Pie,' he references the day the music died. Who's death is he referencing?", 
-    choice: ["Buddy Holly","Martin Luther King Jr.","Buddy Holly","John F. Kennedy"],
-    correct: "Billie Holiday",
+    choice: ["Billie Holiday","Martin Luther King Jr.","Buddy Holly","John F. Kennedy"],
+    correct: "Budy Holly",
 },
 
 {    
@@ -82,7 +82,10 @@ function showQuestion (){
     $(".startscreen").hide();
     $(".card").show();
     $(".question-text").html(trivia[questionNumber].question);
-    $(".choice").html(trivia[questionNumber].choice);
+    $(".choiceA-text").html(trivia[questionNumber].choice[0]);
+    $(".choiceB-text").html(trivia[questionNumber].choice[1]);
+    $(".choiceC-text").html(trivia[questionNumber].choice[2]);
+    $(".choiceD-text").html(trivia[questionNumber].choice[3]);
 };
 
 //next question function?
