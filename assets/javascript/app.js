@@ -2,8 +2,8 @@
 
 //The triva game contains arrays of all the questions, choices and correct answers to the trivia components//
 
-const trivia = [{
-
+const trivia = [
+    {
         question: "In Don Mclean's 'American Pie,' he references 'the day the music died'. Who's death is he referencing?",
         choice: ["Billie Holiday", "Martin Luther King Jr.", "Buddy Holly", "John F. Kennedy"],
         correct: "Buddy Holly",
@@ -87,8 +87,6 @@ $(".end-game").hide();
 //image slide and click result hidden
 $(".question-slide").hide();
 
-
-
 //show question and choices function 
 //will also hide all other elements not in question  and choices form user
 function showQuestion() {
@@ -119,7 +117,7 @@ function userResponse() {
         console.log("they match");
         clearInterval(triviaInterval);
         correctAnswers++;
-        imagesScreenCorrect(); 
+        imagesScreenCorrect();
 
     } else {
         wrongAnswers++;
@@ -138,7 +136,6 @@ function timeSetup() {
         clearInterval(triviaInterval);
     }
 };
-
 
 // function for the images screen when the users guess is correct
 function imagesScreenCorrect() {
@@ -164,7 +161,7 @@ function imagesScreenIncorrect() {
 function imagesScreenTimeUp() {
     $(".card").hide();
     $(".question-slide").show();
-    $(".right-wrong").html( "Times up! The answer is " + trivia[questionNumber].correct);
+    $(".right-wrong").html("Times up! The answer is " + trivia[questionNumber].correct);
     $(".lead").html("<img src=" + images[questionNumber] + " width='400px'>");
     questionNumber++;
     setTimeout(showQuestion, 3000);
@@ -180,7 +177,6 @@ $(".replay").click(function replay() {
     $(".end-game").hide();
     showQuestion();
 });
-
 //ends the game and shows results page function //
 function endGame() {
     if (questionNumber == 10) {
