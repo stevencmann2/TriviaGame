@@ -1,9 +1,6 @@
 // Javascript for Rock and Roll Trivia
-//$(".start") is the start button at the start of the game
 
 //The triva game contains arrays of all the questions, choices and correct answers to the trivia components//
-
-//ISSUES LEFT TO SOLVE: text for pictures that dont display immediately
 
 const trivia = [{
 
@@ -67,8 +64,6 @@ const images = ["assets/images/question0.jpg", "assets/images/question1.jpg", "a
 
 
 // variables to be declared as of now//
-//time left it a countdown timer, starts at 25//
-//triviaInterval will be cleared for each slide timer//
 //answers counters will record results for end slide//
 
 let timeleft = 26;
@@ -93,6 +88,7 @@ $(".end-game").hide();
 $(".question-slide").hide();
 
 
+
 //show question and choices function 
 //will also hide all other elements not in question  and choices form user
 function showQuestion() {
@@ -111,6 +107,39 @@ function showQuestion() {
     triviaInterval = setInterval(timeSetup, 1000);
 
 };
+
+//checking of the button click with user repsonse
+$(".choice").click(userResponse);
+
+//user response function, will use this to determine value click and compare with correct property
+function userResponse() {
+    const clicked = $(this);
+    console.log(clicked.text());
+    if (clicked.text() === trivia[questionNumber].correct) {
+        console.log("they match");
+        clearInterval(triviaInterval);
+        correctAnswers++;
+        imagesScreenCorrect(); 
+
+    } else {
+        wrongAnswers++;
+        clearInterval(triviaInterval);
+        imagesScreenIncorrect();
+    }
+};
+
+//time function for answers that are not answered 
+function timeSetup() {
+    timeleft--;
+    $(".timer").html("Time Left on this Question: " + timeleft);
+    if (timeleft == 0) {
+        timedoutAnswers++;
+        imagesScreenTimeUp();
+        clearInterval(triviaInterval);
+    }
+};
+
+
 // function for the images screen when the users guess is correct
 function imagesScreenCorrect() {
     //this is saying if the ansewer was right then
@@ -142,36 +171,6 @@ function imagesScreenTimeUp() {
 
 };
 
-//time function for answers that are not answered 
-function timeSetup() {
-    timeleft--;
-    $(".timer").html("Time Left on this Question: " + timeleft);
-    if (timeleft == 0) {
-        timedoutAnswers++;
-        imagesScreenTimeUp();
-        clearInterval(triviaInterval);
-    }
-};
-
-//checking of the button click with user repsonse
-$(".choice").click(userResponse);
-
-//user response function, will use this to determine value click and compare with correct property
-function userResponse() {
-    const clicked = $(this);
-    console.log(clicked.text());
-    if (clicked.text() === trivia[questionNumber].correct) {
-        console.log("they match");
-        clearInterval(triviaInterval);
-        correctAnswers++;
-        imagesScreenCorrect(); 
-
-    } else {
-        wrongAnswers++;
-        clearInterval(triviaInterval);
-        imagesScreenIncorrect();
-    }
-};
 //replay function will set values to zero upon click event and restart the question from [0]
 $(".replay").click(function replay() {
     correctAnswers = 0;
