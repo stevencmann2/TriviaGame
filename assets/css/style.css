@@ -17,3 +17,7 @@ body {
 .card {
     display: none;
 }
+
+.navbar{
+    text-align: center;
+}
